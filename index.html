@@ -1,9 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="myApp">
 <head>
-	<title></title>
+	<meta charset="UTF-8">
+	<title>Pocket AD | Shot List Manager</title>
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!-- angular -->
+	<script src="lib/angular.min.js"></script>
+	<script src="js/app.js"></script>
 </head>
-<body>
+<body ng-controller="shotController">
+
+<div class="navbar navbar-default" id="navbar">
+	<div class="container" id="navbar-container">
+		<div class="navbar-header">
+			<a href="#" class="navbar-brand">
+				<img src="img/logo.png" id="logo"/>
+			</a>
+		</div><!-- navbar-header -->
+
+		<div class="navbar-header pull-right">
+			<span id="desc">Like your own personal AD</span>
+		</div>
+	</div><!-- container -->
+</div><!-- navbar -->
+
+<div class="row">
+	<div class="container">
+		<blockquote>
+			<h1>Shot List Manager for Film Students</h1>
+		</blockquote>
+		<div class="col-sm-9">
+			<div ng-include src="'partials/shot.html'"></div>
+		</div>
+	</div><!-- container -->
+</div><!-- row -->
+
 
 </body>
 </html>

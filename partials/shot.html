@@ -1,0 +1,77 @@
+<div class="widget-box" id="recent-box" ng-controller="shotController">
+	<div class="widget-header header-color-blue">
+		<div class="row">
+			<div class="col-sm-6">
+				<h4 class="bigger lighter">
+					<i class="glyphicon glyphicon-facetime-video"></i>
+					&nbsp; SHOT LIST MANAGER
+				</h4>
+			</div><!-- col-sm-6 -->
+
+			<div class="col-sm-3">
+				<button ng-click="addNewClicked=!addNewClicked;" class="btn btn-sm btn-danger header-elements-margin">
+					<i class="glyphicon glyphicon-plus"></i>
+					&nbsp; Add New Task
+				</button>
+			</div><!-- col-sm-3 -->
+
+			<div class="col-sm-3">
+				<input type="text" ng-model="filterShots" class="form-control search header-elements-margin" placeholder="Filter Shots">
+			</div><!-- col-sm-3 -->
+		</div><!-- row -->
+	</div><!-- widget-header -->
+
+	<div class="widget-body">
+		<form ng-init="addNewClicked=false;" ng-if="addNewClicked" id="newShotForm" class="form-inline addShot" role="form">
+			<div class="form-actions">
+				<div class="input-group">
+					<div class="form-group col-xs-2">
+						<label for="shot_num" class="sr-only">*Shot Number:</label>
+						<input type="text" name="shot_num" id="shot_num" class="form-control" ng-model="shot_num" ng-focus="addNewClicked" placeholder="Number">
+					</div>
+
+					<div class="form-group">
+						<label for="shot_type" class="sr-only">Shot Type:</label>
+						<input type="text" name="shot_type" id="shot_type" class="form-control" ng-model="shot_type" placeholder="Shot Type">
+					</div>
+					&nbsp;
+
+					<div class="form-group">
+						<label for="movement" class="sr-only">Movement:</label>
+						<input type="text" name="movement" id="movement" class="form-control" ng-model="movement" placeholder="Movement">
+					</div>
+					&nbsp;
+
+					<div class="col-sm-6">
+						<label for="location" class="sr-only">Location:</label>
+						<input type="text" name="location" id="location" class="form-control" ng-model="location" placeholder="Location">
+					</div>
+					&nbsp;
+
+					<div class="col-sm-6">
+						<label for="Equipment" class="sr-only">Equipment:</label>
+						<input type="text" name="equipment" id="equipment" class="form-control" ng-model="equipment" placeholder="Equipment">
+					</div>
+
+					<div class="col-sm-12">
+						<label for="description" class="sr-only">*Description:</label>
+						<input type="text" name="description" id="description" class="form-control" ng-model="description" placeholder="Description">
+					</div>
+				</div><!-- input-group -->
+			</div><!-- form-actions -->
+		</form>
+
+		<div class="shots">
+			<label class="checkbox" ng-repeat="shot in shots | filter : filterShot | orderBy: shot_num">
+				<input type="checkbox" value="{{shot.status}}" ng-checked="shot.STATUS==2" ng-click="toggleStatus(shot.ID, shot.STATUS, shot.DESCRIPTION)" />
+
+				<span ng-class="{strike:shot.STATUS==2}">{{shot.shot_num}} &nbsp; {{shot.description}}</span>
+
+				<a ng-click="deleteTask(task.ID)" class="pull-right">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+
+			</label>
+		</div><!-- shots -->
+	</div><!-- widget-body -->
+</div><!-- widget-box -->
