@@ -22,10 +22,10 @@ app.controller('shotController', function($scope, $http) {
 		});
 	};
 
-	//delete a task from the db
-	$scope.deleteTask = function(shot) {
+	//delete a shot from the db
+	$scope.deleteShot = function(shot) {
 		if(confirm("Are you sure to delete this shot?")) {
-			$http.get("ajax.deleteShot?shot_id="+shot).success(function(data) {
+			$http.get("ajax/deleteShot.php?shot_id="+shot).success(function(data) {
 				getShot();
 			});
 		}
