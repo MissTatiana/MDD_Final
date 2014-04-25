@@ -43,6 +43,20 @@
 				</div><!-- input-group -->
 			</div><!-- form-actions -->
 		</form>
+
+		<div class="shot">
+			<label class="checkbox" ng-repeat="shot in shots | filter : filterShot">
+				<input type="checkbox" value="{{shot.STATUS}}" ng-checked="shot.STATUS==2" ng-click="toggleStatus(shot.shot_id, shot.STATUS, shot.description)" />
+
+				<span ng-class="{strike:shot.STATUS==2}">Shot #{{shot.shot_num}}: {{shot.description}}</span>
+
+				<a ng-click="deleteTask(shot.shot_id)" class="pull-right">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+
+			</label>
+		</div><!-- shot -->
+
 	</div><!-- widget-body -->
 
 </div><!-- widget-box -->

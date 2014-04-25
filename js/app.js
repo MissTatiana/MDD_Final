@@ -14,11 +14,11 @@ app.controller('shotController', function($scope, $http) {
 	//add a shot to the db 
 	$scope.addShot = function(shot_num, shot_type, movement, description) {
 		$http.get("ajax/addShot.php?shot_num="+shot_num+"&shot_type="+shot_type+"&movement="+movement+"&description="+description).success(function(data) {
+			getShot();
 			$scope.shot_num_input = "";
 			$scope.shot_type_input = "";
 			$scope.movement_input = "";
 			$scope.description_input = "";
-			getShot();
 		});
 	};
 

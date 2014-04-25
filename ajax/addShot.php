@@ -14,8 +14,8 @@ if(isset($_GET['shot'])) {
 	$description = $_GET['description'];
 	$status = "0";
 
-	$query = mysql_query("INSERT INTO shotList(shot_num, shot_type, movement, description)
-						  VALUES('$shot_num', '$shot_type', '$movement', '$description')")
+	$query = mysql_query("INSERT INTO shotList(shot_num, shot_type, movement, description, status)
+						  VALUES('$shot_num', '$shot_type', '$movement', '$description', '$status')")
 						  or die(mysql_error());				
 	
 }
