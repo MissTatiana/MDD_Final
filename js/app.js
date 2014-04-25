@@ -23,10 +23,11 @@ app.controller('shotController', function($scope, $http) {
 	};
 
 	//delete a shot from the db
-	$scope.deleteShot = function(shot) {
+	$scope.deleteShot = function(shot_id) {
 		if(confirm("Are you sure to delete this shot?")) {
-			$http.get("ajax/deleteShot.php?shot_id="+shot).success(function(data) {
+			$http.get("ajax/deleteShot.php?shot_id="+shot_id).success(function(data) {
 				getShot();
+				console.log(data);
 			});
 		}
 	};
