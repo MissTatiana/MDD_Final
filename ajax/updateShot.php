@@ -5,14 +5,14 @@
  * Update the status of a shot
 */
 
-require_once 'db.php';
+$shot_id = $_GET['shot_id'];
 
-if(isset($_GET['shot_id'])) {
+if(isset($shot_id)) {
 	$status = $_GET['status'];
-	$shot_id = $_GET['shot_id'];
 
-	$query = mysql_query("update shotList set status='$status' where id='$shot_id'")
-			 or die(mysql_error());
+	$db = new PDO("mysql:host=localhost; db-name=shotList", "root", "root");
+
+	$query = "update shotList set status='$status' where id=" + $shot_id;
 
 	while($obj = mysql_fetch_object($query)) {
 		$arr[] = $obj; 

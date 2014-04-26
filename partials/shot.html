@@ -8,7 +8,7 @@
 				</h4>
 			</div><!-- col-sm-6 -->
 
-			<div class="col-sm-3">
+			<div class="col-sm-6 col-sm-3">
 				<button ng-click="addNewClicked=!addNewClicked;" class="btn btn-sm btn-danger header-elements-margin">
 					<i class="glyphicon glyphicon-plus"></i>
 					&nbsp;Add New Shot
@@ -27,17 +27,17 @@
 				<div class="input-group">
 
 					<div class="inputRow form-group">
-						<div class="form-group col-xs-2">
+						<div class="form-group col-xs-6 col-sm-3">
 							<label for="shot_num_input" class="sr-only">Shot Number:</label>
 							<input type="text" class="form-control" name="comment" ng-model="shot_num_input" placeholder="Number" ng-focus="addNewClicked">	
 						</div>
 
-						<div class="form-group col-sm-3">	
+						<div class="form-group col-xs-6 col-sm-3">	
 							<label for="shot_type_input" class="sr-only">Shot Type:</label>
 							<input type="text" class="form-control" name="comment" ng-model="shot_type_input" placeholder="Shot Type">
 						</div>
 
-						<div class="form-group col-sm-6">
+						<div class="form-group col-sm-12">
 							<label for="movement_input" class="sr-only">Movement:</label>
 							<input type="text" class="form-control" name="comment" ng-model="movement_input" placeholder="Movement">
 						</div>
@@ -48,7 +48,7 @@
 						<input type="text" class="form-control" name="comment" ng-model="description_input" placeholder="Shot Description">
 					</div>
 
-					<div class="pull-right col-sm-3">
+					<div class="pull-right col-sm-12 col-sm-3">
 						<button class="btn btn-default" type="submit" ng-click="addShot(shot_num_input, shot_type_input, movement_input, description_input)">
 							<i class="glyphicon glyphicon-plus"></i>
 							&nbsp;Add New Shot

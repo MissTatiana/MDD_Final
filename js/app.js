@@ -40,7 +40,7 @@ app.controller('shotController', function($scope, $http) {
 		else {
 			status = '2';
 		}
-		$http.get("ajax/updateTask.php?shot_id="+item+"&status="+status).success(function(data) {
+		$http.get("ajax/updateShot.php?shot_id="+item+"&status="+status).success(function(data) {
 			getShot();
 		});
 	};
