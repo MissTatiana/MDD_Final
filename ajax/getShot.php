@@ -9,10 +9,12 @@ $db = new PDO("mysql:host=localhost; dbname=CameraMan", "root", "root");
 
  $query = "select * from shotList order by shot_num asc";
 
-// $st = $db->prepare($query)
-// $st->execute();
+$st = $db->prepare($query)
 
-// $shots = $st->fetchAll();
+//This is where the 500 error starts 
+$st->execute();
+
+$shots = $st->fetchAll();
 
 // echo $shots;
 
