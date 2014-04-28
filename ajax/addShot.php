@@ -12,7 +12,7 @@ $description = $_GET['description'];
 
 if(isset($shot_num, $shot_type, $movement, $description)) {
 
-	$db = new PDO("mysql:host=localhost; dbname=shotList", "root", "root");
+	$db = new PDO("mysql:host=localhost; dbname=CameraMan", "root", "root");
 
 	$query = "insert into shotList(shot_num, shot_type, movement, description)
 		  values(:shot_num, :shot_type, :movement, :description)";

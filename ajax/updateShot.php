@@ -10,7 +10,7 @@ $shot_id = $_GET['shot_id'];
 if(isset($shot_id)) {
 	$status = $_GET['status'];
 
-	$db = new PDO("mysql:host=localhost; db-name=shotList", "root", "root");
+	$db = new PDO("mysql:host=localhost; db-name=CameraMan", "root", "root");
 
 	$query = "update shotList set status='$status' where id=" + $shot_id;
 
