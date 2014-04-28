@@ -1,7 +1,7 @@
 <?php 
 /*
  * Tatiana Kerick
- * Camera Man - Shot List Manager
+ * PocketAD - Shot List Manager
  * Add a shot to the list in the database
 */
 

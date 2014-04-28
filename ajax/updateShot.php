@@ -1,7 +1,7 @@
 <?php 
 /*
  * Tatiana Kerick
- * Camera Man - Shot List Manager
+ * PocketAD - Shot List Manager
  * Update the status of a shot
 */
 

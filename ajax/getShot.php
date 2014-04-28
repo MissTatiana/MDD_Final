@@ -1,36 +1,23 @@
 <?php 
 /*
  * Tatiana Kerick
- * Camera Man - Shot List Manager
+ * PocketAD - Shot List Manager
  * Retreive the list of shots from the database
 */
 
+ini_set( "display_errors", 1 );
+error_reporting( -1);
+
 $db = new PDO("mysql:host=localhost; dbname=CameraMan", "root", "root");
 
- $query = "select * from shotList order by shot_num asc";
+$query = "select * from shotList order by shot_num asc";
 
-$st = $db->prepare($query)
-
-//This is where the 500 error starts 
+$st = $db->prepare($query);
 $st->execute();
 
 $shots = $st->fetchAll();
 
-// echo $shots;
-
-
-// $status = '%';
-
-// if(isset($_GET['status'])) {
-// 	$status = $_GET['status'];
-// }
-
-//Collect the results
-// while($obj = $st->fetchAll()) {
-// 	$arr[] = $obj;
-// }
-
-// //JSON encode the response
-// echo $json_response = json_encode($arr);
+//Json encode the reponse
+echo $json_response = json_encode($shots)
 
 ?>
