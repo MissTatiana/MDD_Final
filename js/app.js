@@ -13,7 +13,7 @@ app.controller('shotController', function($scope, $http) {
 
 	//add a shot to the db 
 	$scope.addShot = function(shot_num, shot_type, movement, description) {
-		$http.get("ajax/addShot.php?shot_num="+shot_num+"&shot_type="+shot_type+"&movement="+movement+"&description="+description).success(function(data) {
+		$http.get("ajax/addShot.php?shot_num=" + shot_num + "&shot_type=" + shot_type+"&movement=" + movement + "&description=" + description).success(function(data) {
 			getShot();
 			$scope.shot_num_input = "";
 			$scope.shot_type_input = "";
@@ -25,20 +25,16 @@ app.controller('shotController', function($scope, $http) {
 	//delete a shot from the db
 	$scope.deleteShot = function(shot_id) {
 		if(confirm("Are you sure to delete this shot?")) {
-			$http.get("ajax/deleteShot.php?shot_id="+shot_id).success(function(data) {
+			$http.get("ajax/deleteShot.php?shot_id=" + shot_id).success(function(data) {
 				getShot();
 			});
 		}
 	};//deleteShot
-	
-	//edit a shot from the db
-	$scope.editShot = function(shot_id, shot_type, movement, description) {
 
-		$http.get("ajax/editShot?shot_id=" + shot_id + "&shot_type=" + shot_type + "&movement=" + movement + "&description=" + description).success(function(data) {
+	//edit a shot from the db
+	$scope.editShot = function(shot_id, shot_num, shot_type, movement, description) {
+		$http.get("ajax/editShot.php?shot_id=" + shot_id + "&shot_num=" + shot_num + "&shot_type=" + shot_type + "&movement=" + movement + "&description=" + description).success(function(data) {
 			getShot();
-			$scope.shot_type_edit = "";
-			$scope.movement_edit = "";
-			$scope.description_edit = "";
 		});
 	};//editShot
 
