@@ -60,13 +60,24 @@
 
 		<div class="shot">
 			<label class="checkbox" ng-repeat="shot in shots | filter : filterShot">
-				<input type="checkbox" value="{{shot.STATUS}}" ng-checked="shot.STATUS==2" ng-click="toggleStatus(shot.shot_id, shot.STATUS, shot.description)" />
+				<input type="checkbox" value="{{shot.status}}" ng-checked="shot.status==2" ng-click="toggleStatus(shot.shot_id, shot.status, shot.description)" />
 
-				<span ng-class="{strike:shot.STATUS==2}">Shot #{{shot.shot_num}}: {{shot.description}}</span>
+				<span ng-class="{strike:shot.status==2}"><b>Shot #{{shot.shot_num}} 
+					&nbsp;
+					&nbsp;
+					Shot Type: {{shot.shot_type}}
+					&nbsp;
+					&nbsp;
+					Movement: {{shot.movement}}</b>
+					<br />
+					<p class="desc">{{shot.description}}</p>
+				</span>
 
-				<a ng-click="deleteShot(shot.shot_id)" class="pull-right">
-					<i class="glyphicon glyphicon-trash"></i>
-				</a>
+				<div class="tools">
+					<a ng-click="deleteShot(shot.shot_id)" class="pull-right">
+						<i class="glyphicon glyphicon-trash"></i>
+					</a>
+				</div><!-- tools -->
 
 			</label>
 		</div><!-- shot -->

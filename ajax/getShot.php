@@ -10,7 +10,7 @@ error_reporting( -1);
 
 $db = new PDO("mysql:host=localhost; dbname=CameraMan", "root", "root");
 
-$query = "select * from shotList order by shot_num asc";
+$query = "select * from shotList order by status, shot_id asc";
 
 $st = $db->prepare($query);
 $st->execute();

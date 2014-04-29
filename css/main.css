@@ -11,6 +11,10 @@ a:hover {
 	cursor: pointer;
 }
 
+p.desc {
+	text-indent: 10px;
+}
+
 h1 {
 	font-family: 'Open sans', sans-serif;
 	font-size: 2.5em;
@@ -55,6 +59,12 @@ div.shot label.checkbox {
 
 .strike {
 	text-decoration: line-through;
+}
+
+.tools {
+	position: absolute;
+	top: 3px;
+	right: 7px;
 }
 
 .header-elements-margin {

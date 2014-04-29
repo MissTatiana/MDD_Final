@@ -9,7 +9,7 @@ app.controller('shotController', function($scope, $http) {
 		$http.get("ajax/getShot.php").success(function(data) {
 			$scope.shots = data;
 		});
-	};
+	};//getShot
 
 	//add a shot to the db 
 	$scope.addShot = function(shot_num, shot_type, movement, description) {
@@ -20,62 +20,28 @@ app.controller('shotController', function($scope, $http) {
 			$scope.movement_input = "";
 			$scope.description_input = "";
 		});
-	};
+	};//addShot
 
 	//delete a shot from the db
 	$scope.deleteShot = function(shot_id) {
 		if(confirm("Are you sure to delete this shot?")) {
 			$http.get("ajax/deleteShot.php?shot_id="+shot_id).success(function(data) {
 				getShot();
-				console.log(data);
 			});
 		}
-	};
+	};//deleteShot
 
 	//toggle the status of a shot
-	$scope.toggleStatus = function(item, status) {
+	$scope.toggleStatus = function(shot_id, status, description) {
 		if(status == '2'){
 			status = '0';
 		}
 		else {
 			status = '2';
 		}
-		$http.get("ajax/updateShot.php?shot_id="+item+"&status="+status).success(function(data) {
+		$http.get("ajax/updateShot.php?shot_id=" + shot_id + "&status=" + status).success(function(data) {
 			getShot();
 		});
-	};
-});
+	};//toggleStatus
 
-
-/*Define an angular module for app
-var app = angular.module('myApp', []);
-
-app.controller('shotsContoller', function($scope, $http) {
-	getShot();
-
-	function getShot() {
-		$http.get("ajax/getShot.php").success(function(data) {
-			$scope.shots = data;
-		});
-	};
-
-	$scope.deleteShot = function(shot_id) {
-		if(confirm("Are you sure you want to delete this shot?")) {
-			$http.get("ajax/deleteShot.php?shot_id="+shot_id).success(function(data) {
-				getShot();
-			});
-		}
-	};
-
-	$scope.toggleStatus = function(item, status, description) {
-		if(status=='2') {
-			status='0';
-		}
-		else {
-			status='2';
-		}
-		$http.get("ajax/updateShot.php?shot_id="+item+"&status="+status).success(function(data) {
-			getShot();
-		});
-	};
-});*/
+});//end all

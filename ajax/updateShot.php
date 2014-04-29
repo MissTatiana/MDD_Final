@@ -4,21 +4,25 @@
  * PocketAD - Shot List Manager
  * Update the status of a shot
 */
+$shot = array();
+$shot['status'] = $_GET['status'];
+$shot['shot_id'] = $_GET['shot_id'];
 
-$shot_id = $_GET['shot_id'];
 
-if(isset($shot_id)) {
-	$status = $_GET['status'];
 
-	$db = new PDO("mysql:host=localhost; db-name=CameraMan", "root", "root");
+if(isset($shot['shot_id'])) {
 
-	$query = "update shotList set status='$status' where id=" + $shot_id;
+	$db = new PDO("mysql:host=localhost; dbname=CameraMan", "root", "root");
+	$query = "update shotList set status=:status where shot_id=:shot_id";
 
-	while($obj = mysql_fetch_object($query)) {
-		$arr[] = $obj; 
-	}
-	$json_response = json_encode($arr);
+	$st = $db->prepare($query);
+
+
+	$st->execute($shot);
+
+	//var_dump($st->errorInfo());
+
 }
 
-
+//update shotList set status='$status' where id=" + $shot_id
 ?>
