@@ -30,6 +30,17 @@ app.controller('shotController', function($scope, $http) {
 			});
 		}
 	};//deleteShot
+	
+	//edit a shot from the db
+	$scope.editShot = function(shot_id, shot_type, movement, description) {
+
+		$http.get("ajax/editShot?shot_id=" + shot_id + "&shot_type=" + shot_type + "&movement=" + movement + "&description=" + description).success(function(data) {
+			getShot();
+			$scope.shot_type_edit = "";
+			$scope.movement_edit = "";
+			$scope.description_edit = "";
+		});
+	};//editShot
 
 	//toggle the status of a shot
 	$scope.toggleStatus = function(shot_id, status, description) {

@@ -59,27 +59,68 @@
 		</form>
 
 		<div class="shot">
-			<label class="checkbox" ng-repeat="shot in shots | filter : filterShot">
-				<input type="checkbox" value="{{shot.status}}" ng-checked="shot.status==2" ng-click="toggleStatus(shot.shot_id, shot.status, shot.description)" />
+			<div class="everything" ng-repeat="shot in shots | filter : filterShot">
+				<label class="checkbox">
+					<input type="checkbox" value="{{shot.status}}" ng-checked="shot.status==2" ng-click="toggleStatus(shot.shot_id, shot.status, shot.description)" />
 
-				<span ng-class="{strike:shot.status==2}"><b>Shot #{{shot.shot_num}} 
-					&nbsp;
-					&nbsp;
-					Shot Type: {{shot.shot_type}}
-					&nbsp;
-					&nbsp;
-					Movement: {{shot.movement}}</b>
-					<br />
-					<p class="desc">{{shot.description}}</p>
-				</span>
+					<span ng-class="{strike:shot.status==2}"><b>Shot #{{shot.shot_num}} 
+						&nbsp;
+						&nbsp;
+						Shot Type: {{shot.shot_type}}
+						&nbsp;
+						&nbsp;
+						Movement: {{shot.movement}}</b>
+						<br />
+						<p class="desc">{{shot.description}}</p>
+					</span>
 
-				<div class="tools">
-					<a ng-click="deleteShot(shot.shot_id)" class="pull-right">
-						<i class="glyphicon glyphicon-trash"></i>
-					</a>
-				</div><!-- tools -->
+					<div class="tools pull-right">
+						<a ng-click="deleteShot(shot.shot_id)">
+							<i class="glyphicon glyphicon-trash"></i>
+						</a>
+						<br />
+						<a>
+							<i class="glyphicon glyphicon-cog" ng-click="editClicked=!editClicked;"></i>
+						</a>
+					</div><!-- tools -->
+				</label>
 
-			</label>
+				<form ng-init="editClicked=false;" ng-if="editClicked" id="editShotForm" class="edit-shot">
+					<div class="form-actions">
+						<div class="input-group">
+							<b>Edit Shot #{{shot.shot_num}}</b><br />
+							
+							<div class="form-group col-xs-2">
+								<label for="shot_num_edit">Shot #:</label>
+								<input type="text" class="form-control" name="comment" ng-model="shot.shot_num" ng-focus="editClicked">
+							</div>
+
+							<div class="form-group col-xs-4">
+								<label for="shot_type_edit">Shot Type:</label>
+								<input type="text" class="form-control" name="comment" ng-model="shot.shot_type">
+							</div>
+
+							<div class="form-group col-xs-6">
+								<label for="movement_edit">Movement:</label>
+								<input type="text" class="form-control" name="comment" ng-model="shot.movement">
+							</div>
+
+							<div class="form-group col-sx-9">
+								<label for="description_edit">Description:</label>
+								<input type="text" class="form-control" name="comment" ng-model="shot.description">
+							</div>
+
+							<div class="pull-right">
+								<button class="btn btn-default" type="submit" ng-click="editShot(shot.shot_id, shot.stot_type, shot.movement, shot.description)">
+									<i class="glyphicon glyphicon-save"></i>
+									&nbsp;Save
+								</button>
+							</div><!-- input-group-btn -->
+
+						</div><!-- input-group -->
+					</div><!-- form-actions -->
+				</form>
+			</div><!-- everything -->
 		</div><!-- shot -->
 
 	</div><!-- widget-body -->

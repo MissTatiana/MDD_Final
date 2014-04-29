@@ -2,6 +2,10 @@ body {
 	font-family: 'Open sans', sans-serif;
 }
 
+h4 {
+	padding: 0 0 0 0;
+}
+
 a {
 	color: #e1704b;
 	transition: color 0.5s ease;
