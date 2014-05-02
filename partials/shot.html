@@ -1,32 +1,35 @@
 <div class="widget-box">
-	<div class="widget-header header-color-blue">
+	<div class="widget-header header-color-grey">
 		<div class="row">
-			<div class="col-sm-6">
+			<div class="col-md-8 pull-left">
 				<h4 class="bigger lighter">
+					&nbsp; 
 					<i class="glyphicon glyphicon-facetime-video"></i>
 					&nbsp; SHOT LIST MANAGER
 				</h4>
 			</div><!-- col-sm-6 -->
 
-			<div class="col-sm-6 col-sm-3">
-				<button ng-click="addNewClicked=!addNewClicked;" class="btn btn-sm btn-danger header-elements-margin">
+			<div class="col-sm-3 pull-right">
+				<button ng-click="addNewClicked=!addNewClicked;" class="btn btn-sm btn-success header-elements-margin">
 					<i class="glyphicon glyphicon-plus"></i>
 					&nbsp;Add New Shot
 				</button>
 			</div><!-- col-sm-3 -->
 
-			<div class="col-sm-3">
+
+			<div class="col-xs-12">
 				<input type="text" ng-model="filterShot" class="form-control search header-elements-margin" placeholder="Filter Shots">
+				&nbsp;
 			</div><!-- col-sm-3 -->
 		</div><!-- row -->
 	</div><!-- widger-header -->
 
 	<div class="widget-body">
-		<form ng-init="addNewClicked=false;" ng-if="addNewClicked" id="newShotForm" ng-model="add-shot" class="add-shot">
+		<form ng-init="addNewClicked=false;" ng-if="addNewClicked" id="newShotForm" class="add-shot">
 			<div class="form-actions">
 				<div class="input-group">
 
-					<div class="inputRow form-group">
+					<div class="row inputrow">
 						<div class="form-group col-xs-6 col-sm-3">
 							<label for="shot_num_input" class="sr-only">Shot Number:</label>
 							<input type="text" class="form-control" name="comment" ng-model="shot_num_input" placeholder="Number" ng-focus="addNewClicked">	
@@ -36,7 +39,8 @@
 							<label for="shot_type_input" class="sr-only">Shot Type:</label>
 							<input type="text" class="form-control" name="comment" ng-model="shot_type_input" placeholder="Shot Type">
 						</div>
-
+					</div>
+					<div class="row inputrow">
 						<div class="form-group col-sm-12">
 							<label for="movement_input" class="sr-only">Movement:</label>
 							<input type="text" class="form-control" name="comment" ng-model="movement_input" placeholder="Movement">
@@ -63,15 +67,22 @@
 				<label class="checkbox">
 					<input type="checkbox" value="{{shot.status}}" ng-checked="shot.status==2" ng-click="toggleStatus(shot.shot_id, shot.status, shot.description)" />
 
-					<span ng-class="{strike:shot.status==2}"><b>Shot #{{shot.shot_num}} 
-						&nbsp;
-						&nbsp;
-						Shot Type: {{shot.shot_type}}
-						&nbsp;
-						&nbsp;
-						Movement: {{shot.movement}}</b>
-						<br />
-						<p class="desc">{{shot.description}}</p>
+					<span ng-class="{strike:shot.status==2}">
+						<div class="shotItem">
+							<b>Shot #{{shot.shot_num}}</b>
+						</div>
+
+						<div class="shotItem">
+							<b>Shot Type: {{shot.shot_type}}</b>
+						</div>
+
+						<div class="shotItem">
+							<b>Movement: {{shot.movement}}</b>
+						</div>
+
+						<div class="shotItemDesc">
+							<p class="desc">{{shot.description}}</p>
+						</div>
 					</span>
 
 					<div class="tools pull-right">
@@ -90,17 +101,17 @@
 						<div class="input-group">
 							<b>Edit Shot #{{shot.shot_num}}</b><br />
 							
-							<div class="form-group col-xs-2">
+							<div class="form-group col-xs-6 col-sm-3 col-md-">
 								<label for="shot_num_edit">Shot #:</label>
 								<input type="text" class="form-control" name="comment" ng-model="shot.shot_num" ng-focus="editClicked">
 							</div>
 
-							<div class="form-group col-xs-4">
+							<div class="form-group col-xs-6 col-sm-3 col-md-8">
 								<label for="shot_type_edit">Shot Type:</label>
 								<input type="text" class="form-control" name="comment" ng-model="shot.shot_type">
 							</div>
 
-							<div class="form-group col-xs-6">
+							<div class="form-group col-sx-9">
 								<label for="movement_edit">Movement:</label>
 								<input type="text" class="form-control" name="comment" ng-model="shot.movement">
 							</div>

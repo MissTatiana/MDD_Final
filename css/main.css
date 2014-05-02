@@ -1,9 +1,34 @@
+/* 
+ * Tatiana Kerick
+ * MDD - 1403
+ */
+
+/* BODY STYLES
+*********************************************/
+
 body {
-	font-family: 'Open sans', sans-serif;
+	@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+		@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+		@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+		@font-family-base:        @font-family-sans-serif;
+	text-align: center;
+	background-color: #322e2e;
 }
+
+.centerWrapper {
+	width: 100%;
+	margin: 0 auto;
+}
+
+
+
+/* FONT
+*********************************************/
 
 h4 {
 	padding: 0 0 0 0;
+	color: #ebeeda;
+	text-align: left;
 }
 
 a {
@@ -15,17 +40,64 @@ a:hover {
 	cursor: pointer;
 }
 
-p.desc {
-	text-indent: 10px;
+/* NAVBAR
+*********************************************/
+
+.nav-button-margin {
+	margin: 10px 20px 0 0;
 }
 
-h1 {
-	font-family: 'Open sans', sans-serif;
-	font-size: 2.5em;
-	font-weight: 500;
+.navbar {
+	border-radius: 0;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: none;
+	-webkit-box-shadow: 0px 4px 7px 0px rgba(50, 50, 50, 0.66);
+	-moz-box-shadow: 0px 4px 7px 0px rgba(50, 50, 50, 0.66);
+	box-shadow: 0px 4px 7px 0px rgba(50, 50, 50, 0.66);
+}
+
+.navbar .navbar-brand {
+	color: #fff;
+	font-size: 24px;
+	text-shadow: none;
+}
+
+
+/* WIDGET
+*********************************************/
+
+.widget-box {
+	background-color: rgba(255, 255, 255, 0.3)
+}
+
+.widget-body {
+	border: 1px solid #000;
+	border-top: 0;
+	background-color: #fff;
+}
+
+.header-color-grey {
+	/* I totally know this isn't blue*/
+	background: #898a86;
+	box-sizing: content-box;
+	position: relative;
+	min-height: 38px;
+	padding: 0 12px 0;
+	color: #fff;
+}
+
+.filter {
+	margin-top: 10px;
+}
+
+.header-color-grey + .widget-body {
+	margin-top: -10px;
+	padding: 20px 10px;
 }
 
 div.shot label.checkbox {
+	text-align: left;
 	border: 1px solid #ddd;
 	border-left-width: 3px;
 	padding: 9px 9px 9px 29px;
@@ -35,40 +107,32 @@ div.shot label.checkbox {
 	font-weight: normal;
 }
 
-.header-color-blue {
-	background: #307ecc;
-	border: 1px solid #307ecc;
-	box-sizing: content-box;
-	position: relative;
-	min-height: 38px;
-	padding: 0 12px 0;
-	color: #fff;
+.shotItem {
+	float: left;
+	margin: 2px 0 0 0;
+	padding: 0 20% 0 0;
 }
 
-.filter {
-	margin-top: 6px;
+.shotItemDesc {
+	clear: left;
 }
 
-.header-color-blue + .widget-body {
-	border-color: #037ecc;
-	margin-top: -10px;
-	padding: 20px 10px;
-}
-
-.widget-body {
-	border: 1px solid #ccc;
-	border-top: 0;
-	background-color: #fff;
+p.desc {
+	margin: 0 5px 0 10px;
+	width: 90%;
 }
 
 .strike {
 	text-decoration: line-through;
+	color: rgba(0, 0, 0, 0.2);
 }
 
 .tools {
 	position: absolute;
 	top: 3px;
 	right: 7px;
+	padding-bottom: 3px;
+	font-size: 1.500em;
 }
 
 .header-elements-margin {
@@ -79,29 +143,26 @@ div.shot label.checkbox {
 	margin-top: 10px;
 }
 
-.nav-button-margin {
-	margin: 10px 20px 0 0;
+.edit-shot {
+	text-align: left;
+	margin: 0 0 0 10px;
 }
 
-.navbar {
-	border-radius: 0;
-	background: #438eb9;
-	color: #fff;
-}
-
-.navbar .navbar-brand {
-	color: #fff;
-	font-size: 24px;
-	text-shadow: none;
-}
 
 
 /*	=	=	=	=	=	=	=	=	=	=	=	=	=	=	=	
 			MEDIA QUERIES
 =	=	=	=	=	=	=	=	=	=	=	=	=	=	=	*/
 
-@media only screen and (max-width: 480px) {
-	.widget-box {
-		text-align: center;
+@media only screen and (max-width: 700px) {
+	.shotItem:nth-child(3) {
+		clear: left;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.shotItem:nth-child(2) {
+		clear: left;
+		width: 100%;
 	}
 }
