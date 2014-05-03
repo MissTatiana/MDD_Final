@@ -78,8 +78,10 @@
 	<!-- The list of shots -->
 	<div class="shot">
 
-		<div class="everything" ng-repeat="shot in shots | filter : filterShot">
+
+		<div class="everything" ng-repeat="shot in shotList = (shots | filter : filterShot)">
 			<label class="checkbox">
+
 
 				<!-- If checked, or label area clicked, status marked completed -->
 				<input type="checkbox" value="{{shot.status}}" ng-checked="shot.status==2" ng-click="toggleStatus(shot.shot_id, shot.status, shot.description)" />
@@ -158,6 +160,8 @@
 				</div><!-- form-actions -->
 			</form>
 		</div><!-- everything -->
+
+		<span ng-show="shotList.length == 0">No shots found</span>
 	</div><!-- shot -->
 
 </div><!-- widget-body -->
