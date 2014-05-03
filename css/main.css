@@ -108,7 +108,7 @@ a:hover {
 }
 
 div.shot label.checkbox,
-div.project {
+div.project label.checkbox {
 	text-align: left;
 	border: 1px solid #ddd;
 	border-left-width: 3px;
@@ -119,13 +119,20 @@ div.project {
 	font-weight: normal;
 }
 
-.shotItem {
+div.project label.checkbox:hover {
+	background-color: rgba(137, 138, 134, 0.1);
+	transition: color 1s ease;
+}	
+
+.shotItem,
+.projectItem {
 	float: left;
 	margin: 2px 0 0 0;
 	padding: 0 20% 0 0;
 }
 
-.shotItemDesc {
+.shotItemDesc,
+.projectItemDesc {
 	clear: left;
 }
 

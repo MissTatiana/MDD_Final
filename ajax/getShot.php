@@ -8,16 +8,26 @@
 ini_set( "display_errors", 1 );
 error_reporting( -1);
 
-$db = new PDO("mysql:host=localhost; dbname=CameraMan", "root", "root");
+$project_shot_id = $_GET['project_shot_id'];
 
-$query = "select * from shotList order by status, shot_id asc";
+if(isset($project_shot_id)) {
 
-$st = $db->prepare($query);
-$st->execute();
+	$db = new PDO("mysql:host=localhost; dbname=CameraMan", "root", "root");
 
-$shots = $st->fetchAll();
+	$query = "select * from shotList 
+			  where project_shot_id = :project_shot_id	
+			  order by status, shot_id asc";
 
-//Json encode the reponse
-echo $json_response = json_encode($shots)
+	$st = $db->prepare($query);
+	$st->bindParam(':project_shot_id', $project_shot_id);
+
+	$st->execute();
+
+	$shots = $st->fetchAll();
+
+	//Json encode the reponse
+	echo $json_response = json_encode($shots);
+
+}
 
 ?>

@@ -65,27 +65,26 @@
 
 	<!-- The list of shots -->
 	<div class="project">
-
-		<div class="everything" ng-repeat="project in projects | filter : filterProject">
+		<div class="everything" ng-repeat="project in projects | filter : FilterProject">
 			<label class="checkbox">
-
-				<div class="shotItem">
-					<b>Project: Title{{project.project_title}}</b>
+				<!-- Im fully aware that there is no check box here -->
+				<div class="projectItem">
+					<b>Project Title: {{project.project_title}}</b>
 				</div>
 
-				<div class="shotItemDesc">
-					<p class="desc">{{project.project.desc}}</p>
+				<div class="projectItemDesc">
+					<p class="desc">{{project.project_desc}}</p>
 				</div>
 
 				<div class="tools pull-right">
-					<!-- Delete Shot -->
-					<a ng-click="deleteShot(shot.shot_id)">
+					<!-- Delete project -->
+					<a ng-click="deleteProject(project.project_id)">
 						<i class="glyphicon glyphicon-trash"></i>
 					</a>
-				</div><!-- tools -->
-
+				</div>
 			</label>
-		</div><!-- everything -->
+
+		</div>
 	</div><!-- project -->
 
 </div><!-- widget-body -->
