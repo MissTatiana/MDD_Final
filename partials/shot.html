@@ -3,6 +3,16 @@
 	PocketAD - shot partial
 -->
 
+<div class="back">
+	<h4>
+	<a href="#/projects">	
+		<i class="glyphicon glyphicon-arrow-left"></i>
+		&nbsp;
+		Projects
+	</a>
+	</h4>
+</div>
+
 <!--Container of widget -->
 <div class="widget-box">
 
@@ -39,11 +49,12 @@
 	<!-- Add Shot Form, display when only clicked -->
 	<form ng-init="addNewClicked=false;" ng-if="addNewClicked" id="newShotForm" class="add-shot" role="form">
 		<div class="form-actions">
-			<div class="input-group">
+			<div class="row">
+				<h4>Add Title</h4>
 				<!-- Shot Number -->
 				<div class="form-group col-xs-6 col-md-3">
 					<label for="shot_num_input" class="sr-only">Shot Number:</label>
-					<input type="text" class="form-control" name="comment" ng-model="shot_num_input" placeholder="Number" ng-focus="addNewClicked">	
+					<input type="text" class="form-control" name="comment" ng-model="shot_num_input" placeholder="Number" focus>	
 				</div>
 
 				<!-- Shot Type -->
@@ -51,19 +62,22 @@
 					<label for="shot_type_input" class="sr-only">Shot Type:</label>
 					<input type="text" class="form-control" name="comment" ng-model="shot_type_input" placeholder="Shot Type">
 				</div>
-
+			</div>
+			<div class="row">
 				<!-- Movement -->
 				<div class="form-group col-sm-12">
 					<label for="movement_input" class="sr-only">Movement:</label>
 					<input type="text" class="form-control" name="comment" ng-model="movement_input" placeholder="Movement">
 				</div>
-
+			</div>
+			<div class="row">
 				<!-- Description -->
 				<div class="form-group col-sm-12">
 					<label for="description_input" class="sr-only">Description:</label>
 					<input type="text" class="form-control" name="comment" ng-model="description_input" placeholder="Shot Description">
 				</div>
-
+			</div>
+			<div class="row">
 				<!-- Submit -->
 				<div class="pull-right col-sm-12 col-sm-3">
 					<button class="btn btn-default" type="submit" ng-click="addShot(shot_num_input, shot_type_input, movement_input, description_input)">
@@ -71,13 +85,12 @@
 						&nbsp;Add New Shot
 					</button>
 				</div><!-- input-group-btn -->
-			</div><!-- input-group -->
+			</div>
 		</div><!-- form-actions -->
 	</form>
 
 	<!-- The list of shots -->
 	<div class="shot">
-
 		<div class="everything" ng-repeat="shot in shots | filter : filterShot">
 			<label class="checkbox">
 
@@ -102,12 +115,8 @@
 					</div>
 				</span>
 
+				<!-- delete button inside edit form -->
 				<div class="tools pull-right">
-					<!-- Delete Shot -->
-					<a ng-click="deleteShot(shot.shot_id)">
-						<i class="glyphicon glyphicon-trash"></i>
-					</a>
-					<br />
 					<!-- Edit Shot, displays form to edit -->
 					<a ng-click="editClicked=!editClicked;">
 						<i class="glyphicon glyphicon-cog"></i>
@@ -148,6 +157,12 @@
 
 						<!-- Submit -->
 						<div class="pull-right">
+
+							<!-- Delete Shot -->
+							<a class="tool" ng-click="deleteShot(shot.shot_id)">
+								<i class="glyphicon glyphicon-trash"></i>
+							</a>
+
 							<button class="btn btn-default" type="submit" ng-click="editShot(shot.shot_id, shot.shot_num, shot.shot_type, shot.movement, shot.description)">
 								<i class="glyphicon glyphicon-save"></i>
 								&nbsp;Save

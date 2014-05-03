@@ -41,24 +41,31 @@
 		<div class="form-actions">
 			<div class="input-group">
 				<!-- Project Title -->
-				<div class="form-group .col-xs-6 .col-md-4">
-					<label for="shot_num_input" class="sr-only">Project Title:</label>
-					<input type="text" class="form-control" name="comment" ng-model="projec_title_input" placeholder="Project Title" ng-focus="addNewClicked">
-				</div>
+				<div class="row">
+					<div class="form-group col-sm-12 col-md-6">
+						<label for="shot_num_input" class="sr-only">Project Title:</label>
+						<input type="text" class="form-control" name="comment" ng-model="project_title_input" placeholder="Project Title" ng-focus="addNewClicked">
+					</div>
+				</div><!-- row -->
 
 				<!-- Project Description -->
-				<div class="form-group .col-xs-6 .col-md-4">
-					<label for="shot_num_input" class="sr-only">Project Description:</label>
-					<input type="text" class="form-control" name="comment" ng-model="projec_desc_input" placeholder="Project Description" ng-focus="addNewClicked">
+				<div class="row">
+					<div class="form-group col-sm-12 col-md-6">
+						<label for="shot_num_input" class="sr-only">Project Description:</label>
+						<input type="text" class="form-control" name="comment" ng-model="project_desc_input" placeholder="Project Description" ng-focus="addNewClicked">
+					</div>
 				</div>
 
 				<!-- Submit -->
-				<div class="pull-right col-sm-12 col-sm-3">
-					<button class="btn btn-default" type="submit" ng-click="addProject(project_title_input, project_desc_input)">
-						<i class="glyphicon glyphicon-plus"></i>
-						&nbsp;Add New Project
-					</button>
-				</div><!-- input-group-btn -->
+				<div class="row">
+					<!-- Submit -->
+					<div class="pull-right col-sm-12 col-sm-3">
+						<button class="btn btn-default" type="submit" ng-click="addProject(project_title_input, project_desc_input)">
+							<i class="glyphicon glyphicon-plus"></i>
+							&nbsp;Add New Shot
+						</button>
+					</div><!-- input-group-btn -->
+				</div>
 			</div><!-- input-group -->
 		</div><!-- form-actions -->
 	</form>
@@ -66,16 +73,18 @@
 	<!-- The list of shots -->
 	<div class="project">
 		<div class="everything" ng-repeat="project in projects | filter : FilterProject">
+
 			<label class="checkbox">
-				<!-- Im fully aware that there is no check box here -->
-				<div class="projectItem">
-					<b>Project Title: {{project.project_title}}</b>
-				</div>
+				<a class="shotsLink" href="#/shots/{{project.project_id}}">
+					<!-- Im fully aware that there is no check box here -->
+					<div class="projectItem">
+						<b>Project Title: {{project.project_title}}</b>
+					</div>
 
-				<div class="projectItemDesc">
-					<p class="desc">{{project.project_desc}}</p>
-				</div>
-
+					<div class="projectItemDesc">
+						<p class="desc">{{project.project_desc}}</p>
+					</div>
+				</a>
 				<div class="tools pull-right">
 					<!-- Delete project -->
 					<a ng-click="deleteProject(project.project_id)">
@@ -83,6 +92,7 @@
 					</a>
 				</div>
 			</label>
+		
 
 		</div>
 	</div><!-- project -->

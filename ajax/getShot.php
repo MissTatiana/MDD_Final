@@ -16,7 +16,7 @@ if(isset($project_shot_id)) {
 
 	$query = "select * from shotList 
 			  where project_shot_id = :project_shot_id	
-			  order by status, shot_id asc";
+			  order by status, shot_num asc";
 
 	$st = $db->prepare($query);
 	$st->bindParam(':project_shot_id', $project_shot_id);
