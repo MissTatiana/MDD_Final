@@ -1,4 +1,4 @@
-<!--
+
 	Tatiana Kerick 
 	PocketAD - shot partial
 -->
@@ -35,18 +35,19 @@
 
 <!-- Main Content of the Widget -->
 <div class="widget-body">
+
 	<!-- Add Shot Form, display when only clicked -->
-	<form ng-init="addNewClicked=false;" ng-if="addNewClicked" id="newShotForm" class="form-inline">
+	<form ng-init="addNewClicked=false;" ng-if="addNewClicked" id="newShotForm" class="add-shot" role="form">
 		<div class="form-actions">
 			<div class="input-group">
 				<!-- Shot Number -->
-				<div class="form-group col-xs-6 col-sm-3">
+				<div class="form-group col-xs-6 col-md-3">
 					<label for="shot_num_input" class="sr-only">Shot Number:</label>
 					<input type="text" class="form-control" name="comment" ng-model="shot_num_input" placeholder="Number" ng-focus="addNewClicked">	
 				</div>
 
 				<!-- Shot Type -->
-				<div class="form-group col-xs-6 col-sm-3">	
+				<div class="form-group col-xs-6 col-md-3">	
 					<label for="shot_type_input" class="sr-only">Shot Type:</label>
 					<input type="text" class="form-control" name="comment" ng-model="shot_type_input" placeholder="Shot Type">
 				</div>
@@ -76,8 +77,10 @@
 
 	<!-- The list of shots -->
 	<div class="shot">
+
 		<div class="everything" ng-repeat="shot in shots | filter : filterShot">
 			<label class="checkbox">
+
 				<!-- If checked, or label area clicked, status marked completed -->
 				<input type="checkbox" value="{{shot.status}}" ng-checked="shot.status==2" ng-click="toggleStatus(shot.shot_id, shot.status, shot.description)" />
 
@@ -110,6 +113,7 @@
 						<i class="glyphicon glyphicon-cog"></i>
 					</a>
 				</div><!-- tools -->
+
 			</label>
 
 			<!-- Edit Shot Form, display only on click -->
@@ -158,4 +162,4 @@
 
 </div><!-- widget-body -->
 
-</div><!-- widget-box -->
+</div><!-- widget-box 
