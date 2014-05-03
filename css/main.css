@@ -25,10 +25,21 @@ body {
 /* FONT
 *********************************************/
 
+h1 {
+	padding: 0 0 0 0;
+	color: #ccd1b0;
+	text-align: left;
+}
+
 h4 {
 	padding: 0 0 0 0;
 	color: #ebeeda;
 	text-align: left;
+}
+
+blockquote {
+	color: #322e2e;
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 a {
@@ -96,7 +107,8 @@ a:hover {
 	padding: 20px 10px;
 }
 
-div.shot label.checkbox {
+div.shot label.checkbox,
+div.project {
 	text-align: left;
 	border: 1px solid #ddd;
 	border-left-width: 3px;

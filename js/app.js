@@ -1,6 +1,34 @@
 //Define angular module
 var app = angular.module('myApp', []);
 
+app.controller('projectController', function($scope, $http) {
+	getProject();
+
+	//retrieve projects from db
+	function getProject() {
+		$http.get("ajax/getProject.php").success(function(data) {
+			$scope.projects = data;
+		});
+	};//getProject
+
+	//add a project to the db
+	$scope.addProject = function(project_title, project_desc) {
+		$http.get("ajax/addProject.php?project_title=" + project_title + "?project_desc=" + project_desc).success(function(data) {
+			getProject();
+		});
+	};//addProject
+
+	//delete a project from the db
+	$scope.deleteProject = function(project_id) {
+		if(confirm("Are you sure to delete this project?")) {
+			$http.get("ajax/deleteProject.php?project_id=" + project_id).success(function(data) {
+				getProject();
+			});
+		}
+	};//deleteProject
+
+});//projectController
+
 app.controller('shotController', function($scope, $http) {
 	getShot();
 
@@ -51,4 +79,4 @@ app.controller('shotController', function($scope, $http) {
 		});
 	};//toggleStatus
 
-});//end all
+});//shotController

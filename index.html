@@ -16,7 +16,7 @@
 	<script src="lib/angular.min.js"></script>
 	<script src="js/app.js"></script>
 </head>
-<body ng-controller="shotController">
+<body ng-controller="projectController">
 <div class="centerWrapper">
 
 <div class="navbar navbar-default" id="navbar">
@@ -31,8 +31,11 @@
 
 <div class="row">
 	<div class="container">
+		<blockquote>
+			<h1>Shot List Manager</h1>
+		</blockquote>
 		<div class="col-sm-9">
-			<div ng-include src="'partials/shot.html'"></div>
+			<div ng-include src="'partials/project.html'"></div>
 		</div>
 	</div><!-- container -->
 </div><!-- row -->
