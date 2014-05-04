@@ -1,0 +1,11 @@
+Hello, 
+
+I was having an issue with the cols for the add project, and too much time was spent do something I cannot mentally chew any more.
+
+Obviously I didn't fix the alignment issues that were going on.
+
+The trash icon has been moved into the edit sections.
+
+heading has been added for add shot.
+
+This project has been a bit testing because I haven't been able to touch php for the last 2 months, I appreciate it.
