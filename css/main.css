@@ -25,18 +25,45 @@ body {
 /* FONT
 *********************************************/
 
+h1 {
+	padding: 0 0 0 0;
+	color: #ccd1b0;
+	text-align: left;
+}
+
+h3 {
+	text-align: left;
+	font-size: 1.200em;
+	padding: 0 0 0 20px;
+}
+
 h4 {
 	padding: 0 0 0 0;
 	color: #ebeeda;
 	text-align: left;
 }
 
-a {
+.back a {
+	color: #ebeeda;
+}
+
+.back a:hover {
+	color: #526d88;
+	transition: color 0.5s ease;
+	text-decoration: none;
+}
+
+blockquote {
+	color: #322e2e;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+a.tool {
 	color: #e1704b;
 	transition: color 0.5s ease;
 }
 
-a:hover {
+a.tool:hover {
 	cursor: pointer;
 }
 
@@ -96,7 +123,8 @@ a:hover {
 	padding: 20px 10px;
 }
 
-div.shot label.checkbox {
+div.shot label.checkbox,
+div.project label.checkbox {
 	text-align: left;
 	border: 1px solid #ddd;
 	border-left-width: 3px;
@@ -107,13 +135,30 @@ div.shot label.checkbox {
 	font-weight: normal;
 }
 
-.shotItem {
+div.project label.checkbox:hover {
+	background-color: rgba(137, 138, 134, 0.1);
+	transition: background-color 1s ease;
+}	
+
+a.shotsLink {
+	color: #000;
+}
+
+a.shotsLink:hover {
+	color: #526d88;
+	transition: color: 0.5s ease;
+	text-decoration: none;
+}
+
+.shotItem,
+.projectItem {
 	float: left;
 	margin: 2px 0 0 0;
 	padding: 0 20% 0 0;
 }
 
-.shotItemDesc {
+.shotItemDesc,
+.projectItemDesc {
 	clear: left;
 }
 
@@ -127,12 +172,20 @@ p.desc {
 	color: rgba(0, 0, 0, 0.2);
 }
 
-.tools {
+.tools a {
 	position: absolute;
 	top: 3px;
 	right: 7px;
 	padding-bottom: 3px;
 	font-size: 1.500em;
+	color: #e1704b;
+}
+
+.tool {
+	position: absolute;
+	padding-top: 3px;
+	right: 100px;
+	font-size: 1.500em
 }
 
 .header-elements-margin {

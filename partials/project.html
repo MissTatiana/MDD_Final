@@ -1,0 +1,103 @@
+<!--
+	Tatiana Kerick 
+	PocketAD - project partial
+-->
+
+<!--Container of widget -->
+<div class="widget-box">
+
+<!-- Header of widget -->
+<div class="widget-header header-color-grey">
+	<div class="row">
+		<div class="col-md-8 pull-left">
+			<h4 class="bigger lighter">
+				&nbsp; 
+				<i class="glyphicon glyphicon-facetime-video"></i>
+				&nbsp; Project List
+			</h4>
+		</div><!-- col-sm-6 -->
+
+		<!-- add new shot, shows form -->
+		<div class="col-sm-3 pull-right">
+			<button ng-click="addNewClicked=!addNewClicked;" class="btn btn-sm btn-success header-elements-margin">
+				<i class="glyphicon glyphicon-plus"></i>
+				&nbsp;Add New Project
+			</button>
+		</div><!-- col-sm-3 -->
+
+		<!-- Filters the shots for search -->
+		<div class="col-xs-12">
+			<input type="text" ng-model="filterProject" class="form-control search header-elements-margin" placeholder="Filter Projects">
+			&nbsp;
+		</div><!-- col-sm-3 -->
+	</div><!-- row -->
+</div><!-- widger-header -->
+
+<!-- Main Content of the Widget -->
+<div class="widget-body">
+
+	<!-- Add Ptoject Form, display when only clicked -->
+	<form ng-init="addNewClicked=false;" ng-if="addNewClicked" id="newProjectForm" class="add-project" role="form">
+		<div class="form-actions">
+			<div class="input-group">
+				<!-- Project Title -->
+				<div class="form-group col-sm-12">
+					<label for="shot_num_input" class="sr-only">Project Title:</label>
+					<input type="text" class="form-control" name="comment" ng-model="project_title_input" placeholder="Project Title" ng-focus="addNewClicked">
+				</div>
+				
+
+				<!-- Project Description -->
+					<div class="form-group col-sm-12">
+						<label for="shot_num_input" class="sr-only">Project Description:</label>
+						<input type="text" class="form-control" name="comment" ng-model="project_desc_input" placeholder="Project Description" ng-focus="addNewClicked">
+					</div>
+				
+
+				<!-- Submit -->
+				<div class="row">
+					<!-- Submit -->
+					<div class="pull-right col-sm-12 col-sm-3">
+						<button class="btn btn-default" type="submit" ng-click="addProject(project_title_input, project_desc_input)">
+							<i class="glyphicon glyphicon-plus"></i>
+							&nbsp;Add New Shot
+						</button>
+					</div><!-- input-group-btn -->
+				</div>
+			</div><!-- input-group -->
+		</div><!-- form-actions -->
+	</form>
+
+	<!-- The list of shots -->
+	<div class="project">
+		<div class="everything" ng-repeat="project in projectList = (projects | filter : filterProject)">
+
+			<label class="checkbox">
+				<a class="shotsLink" href="#/shots/{{project.project_id}}">
+					<!-- Im fully aware that there is no check box here -->
+					<div class="projectItem">
+						<b>Project Title: {{project.project_title}}</b>
+					</div>
+
+					<div class="projectItemDesc">
+						<p class="desc">{{project.project_desc}}</p>
+					</div>
+				</a>
+				<div class="tools pull-right">
+					<!-- Delete project -->
+					<a ng-click="deleteProject(project.project_id)">
+						<i class="glyphicon glyphicon-trash"></i>
+					</a>
+				</div>
+			</label>
+		
+
+		</div><!-- everything -->
+
+		<span ng-show="projectList.length == 0">No projects found</span>
+
+	</div><!-- project -->
+
+</div><!-- widget-body -->
+
+</div><!-- widget-box 

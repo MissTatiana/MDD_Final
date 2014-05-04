@@ -10,7 +10,8 @@ error_reporting(-1);
 
 $db = new PDO("mysql:host=localhost; dbname=CameraMan", "root", "root");
 
-$query = "select * from projectList order by project_id";
+$query = "select * from projectList 
+		  order by project_id asc";
 
 $st = $db->prepare($query);
 $st->execute();
